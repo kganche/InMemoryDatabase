@@ -1,4 +1,4 @@
-﻿namespace InMemoryDatabase;
+﻿namespace Database.Models;
 
 public class User
 {

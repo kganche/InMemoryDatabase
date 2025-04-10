@@ -1,4 +1,6 @@
-﻿namespace InMemoryDatabase;
+﻿using Database.Models;
+
+namespace Database.Comparers;
 
 public class UserComparer : IComparer<User>
 {

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryDatabase", "InMemoryDatabase\InMemoryDatabase.csproj", "{0FD82918-2849-4BEC-89C3-351287714CF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "InMemoryDatabase\Database.csproj", "{0FD82918-2849-4BEC-89C3-351287714CF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{D62C00FD-44E2-4915-A008-A856369B6FB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{0FD82918-2849-4BEC-89C3-351287714CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FD82918-2849-4BEC-89C3-351287714CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FD82918-2849-4BEC-89C3-351287714CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62C00FD-44E2-4915-A008-A856369B6FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62C00FD-44E2-4915-A008-A856369B6FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62C00FD-44E2-4915-A008-A856369B6FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62C00FD-44E2-4915-A008-A856369B6FB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32A09C5A-D1B1-4485-B84A-E4A0F29BF1A7}
 	EndGlobalSection
 EndGlobal

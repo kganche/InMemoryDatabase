@@ -1,6 +1,10 @@
-﻿namespace InMemoryDatabase;
+﻿using Database.Comparers;
+using Database.Contracts;
+using Database.Models;
 
-public class InMemoryDatabase
+namespace Database.Database;
+
+public class InMemoryDatabase : IInMemoryDatabase
 {
     private SortedList<User, User> _users = new(new UserComparer());
     private Dictionary<string, Dictionary<object, List<int>>> _indexes = [];
@@ -10,6 +14,7 @@ public class InMemoryDatabase
         _users.Add(user, user);
         RebuildIndexes();
     }
+
     public User? GetUserById(int id)
     {
         int index = BinarySearchById(id);
@@ -28,10 +33,10 @@ public class InMemoryDatabase
         }
     }
 
-    public List<User> GetUsersByIndexedColumn(string columnName, object valueObect)
+    public List<User> GetUsersByIndexedColumn(string columnName, object valueObject)
     {
         if (_indexes.TryGetValue(columnName, out Dictionary<object, List<int>>? value)
-            && value.TryGetValue(valueObect, out List<int>? userIds))
+            && value.TryGetValue(valueObject, out List<int>? userIds))
         {
             var result = new List<User>();
 
@@ -82,13 +87,12 @@ public class InMemoryDatabase
     {
         var columnValue = GetColumnValue(user, columnName);
 
-        if (!_indexes[columnName].TryGetValue(columnValue, out List<int>? value))
+        if (!_indexes[columnName].ContainsKey(columnValue))
         {
-            value = [];
-            _indexes[columnName][value] = value;
+            _indexes[columnName][columnValue] = [];
         }
 
-        value.Add(user.Id);
+        _indexes[columnName][columnValue].Add(user.Id);
     }
 
     private object GetColumnValue(User user, string columnName) => columnName switch
